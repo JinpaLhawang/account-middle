@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class PropertiesApplication {
+public class PropertiesMiddleApplication {
 
-  private static final Logger log = LoggerFactory.getLogger(PropertiesApplication.class);
+  private static final Logger log = LoggerFactory.getLogger(PropertiesMiddleApplication.class);
 
   @RequestMapping("/")
   public String home() {
@@ -20,7 +20,7 @@ public class PropertiesApplication {
   }
 
   public static void main(String[] args) {
-    SpringApplication.run(PropertiesApplication.class, args);
+    SpringApplication.run(PropertiesMiddleApplication.class, args);
   }
 
 }
