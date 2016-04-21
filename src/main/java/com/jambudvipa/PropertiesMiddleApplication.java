@@ -14,7 +14,7 @@ public class PropertiesMiddleApplication {
   private static final Logger log = LoggerFactory.getLogger(PropertiesMiddleApplication.class);
 
   @RequestMapping("/")
-  public String home() {
+  public String properties() {
     log.info("Hello World!");
     return "Hello World!";
   }
