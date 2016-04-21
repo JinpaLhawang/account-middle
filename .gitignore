@@ -2,6 +2,5 @@
 .project
 .mvn/
 .settings/
-mvnw*
 bin/
 target/
