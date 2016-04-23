@@ -34,3 +34,9 @@ curl -i -u user:password http://localhost:8090/applications -H "Content-Type:app
 curl -i -u user:password http://localhost:8090/applications/search -H "Content-Type:application/json"
 curl -i -u user:password http://localhost:8090/applications/search/findByName?name=test-edge -H "Content-Type:application/json"
 ```
+
+### Checking Eureka Client Service Discovery Instance Details
+
+```
+curl -i -u user:password http://localhost:8090/service-instances/properties-middle -H "Content-Type:application/json"
+```
