@@ -17,6 +17,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
 import java.nio.charset.Charset;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.jinpalhawang.jambudvipa.PropertiesMiddleApplication;
 
@@ -37,7 +39,9 @@ public class PropertiesMiddleApplicationTests {
   public void setup() throws Exception {
     this.mockMvc = webAppContextSetup(webApplicationContext).build();
     this.applicationRepository.deleteAll();
-    this.applicationRepository.save(new Application("hello-world-middle", "Hello World!"));
+    Map<String, String> properties = new HashMap<String, String>();
+    properties.put("text", "Hello World!");
+    this.applicationRepository.save(new Application("hello-world-middle", "Hello World!", properties));
   }
 
   @Test

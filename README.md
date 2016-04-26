@@ -24,7 +24,7 @@ mvn spring-boot:run
 ### Inserting Data
 
 ```
-curl -i -X POST http://localhost:8090/applications -d '{ "name" : "hello-world-middle", "property": "Hello World!" }' -H "Content-Type:application/json"
+curl -i -X POST http://localhost:8090/applications -d '{ "name" : "hello-world-middle", "property": "Hello World!", "properties": { "text": "Hello World!" } }' -H "Content-Type:application/json"
 ```
 
 ### Requesting Data
