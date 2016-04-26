@@ -24,7 +24,7 @@ mvn spring-boot:run
 ### Inserting Data
 
 ```
-curl -i -X POST http://localhost:8090/applications -d '{  "name" : "test-edge" }' -H "Content-Type:application/json"
+curl -i -X POST http://localhost:8090/applications -d '{ "name" : "hello-world-middle", "property": "Hello World!" }' -H "Content-Type:application/json"
 ```
 
 ### Requesting Data
@@ -32,7 +32,7 @@ curl -i -X POST http://localhost:8090/applications -d '{  "name" : "test-edge" }
 ```
 curl -i http://localhost:8090/applications -H "Content-Type:application/json"
 curl -i http://localhost:8090/applications/search -H "Content-Type:application/json"
-curl -i http://localhost:8090/applications/search/findByName?name=test-edge -H "Content-Type:application/json"
+curl -i http://localhost:8090/applications/search/findByName?name=hello-world-middle -H "Content-Type:application/json"
 ```
 
 ### Checking Eureka Client Service Discovery Instance Details

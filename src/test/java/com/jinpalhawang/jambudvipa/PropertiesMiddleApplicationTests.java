@@ -37,7 +37,7 @@ public class PropertiesMiddleApplicationTests {
   public void setup() throws Exception {
     this.mockMvc = webAppContextSetup(webApplicationContext).build();
     this.applicationRepository.deleteAll();
-    this.applicationRepository.save(new Application("test-edge"));
+    this.applicationRepository.save(new Application("hello-world-middle", "Hello World!"));
   }
 
   @Test
@@ -52,14 +52,14 @@ public class PropertiesMiddleApplicationTests {
 
   @Test
   public void applicationsFindByName() throws Exception {
-    mockMvc.perform(get("/applications/search/findByName?name=test-edge"))
+    mockMvc.perform(get("/applications/search/findByName?name=hello-world-middle"))
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaTypes.HAL_JSON));
   }
 
   @Test
   public void applicationsFindByNameNotFound() throws Exception {
-    mockMvc.perform(get("/applications/search/findByName?name=invalid-edge"))
+    mockMvc.perform(get("/applications/search/findByName?name=invalid"))
         .andExpect(status().isNotFound());
   }
 
