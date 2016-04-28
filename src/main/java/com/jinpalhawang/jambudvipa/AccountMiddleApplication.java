@@ -21,9 +21,12 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableDiscoveryClient
 public class AccountMiddleApplication {
 
+  private static final Logger log = LoggerFactory.getLogger(AccountMiddleApplication.class);
+
   @Autowired
   void setEnvironment(Environment e) {
-    System.out.println(e.getProperty("helloWorld"));
+    log.info("Environment Property: server.port=" + e.getProperty("server.port"));
+    log.info("Environment Property: helloWorld=" + e.getProperty("helloWorld"));
   }
 
   public static void main(String[] args) {
@@ -36,7 +39,7 @@ public class AccountMiddleApplication {
 @RefreshScope
 class AccountMiddleRestController {
 
-  private static final Logger log = LoggerFactory.getLogger(AccountMiddleApplication.class);
+  private static final Logger log = LoggerFactory.getLogger(AccountMiddleRestController.class);
 
   @Autowired
   private DiscoveryClient discoveryClient;
@@ -45,7 +48,7 @@ class AccountMiddleRestController {
   private String helloWorld;
 
   @RequestMapping("/")
-  public String properties() {
+  public String helloWorld() {
     log.info(helloWorld);
     return helloWorld;
   }
