@@ -40,7 +40,8 @@ public class AccountMiddleApplicationTests {
     this.mockMvc = webAppContextSetup(webApplicationContext).build();
     this.accountRepository.deleteAll();
     Map<String, String> tags = new HashMap<String, String>();
-    tags.put("text", "Hello World!");
+    tags.put("debug1", "I used to say Hello World!");
+    tags.put("debug2", "Now I say Hello Jinpa Lhawang!");
     this.accountRepository.save(new Account("Jinpa", "Lhawang", tags));
   }
 

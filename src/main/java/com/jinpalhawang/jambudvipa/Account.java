@@ -29,6 +29,10 @@ public class Account {
     return lastName;
   }
 
+  public String getFullName() {
+    return getFirstName() + " " + getLastName();
+  }
+
   public Map<String, String> getTags() {
     return tags;
   }
@@ -43,6 +47,11 @@ public class Account {
 
   public void setTags(Map<String, String> tags) {
     this.tags = tags;
+  }
+
+  @Override
+  public String toString() {
+    return "[" + firstName + " " + lastName + "] Tags: " + tags.size();
   }
 
 }
