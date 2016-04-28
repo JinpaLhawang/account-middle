@@ -1,10 +1,10 @@
-# properties-middle
+# account-middle
 
 ## Setup
 
 ```
-git clone https://github.com/JinpaLhawang/properties-middle.git
-cd properties-middle
+git clone https://github.com/JinpaLhawang/account-middle.git
+cd account-middle
 ```
 
 ## Testing and Building
@@ -24,19 +24,16 @@ mvn spring-boot:run
 ### Inserting Data
 
 ```
-curl -i -X POST http://localhost:8090/applications -d '{ "name" : "hello-world-middle", "property": "Hello World!", "properties": { "text": "Hello World!" } }' -H "Content-Type:application/json"
+curl -i -X POST http://localhost:8090/accounts -d '{ "firstName" : "Jinpa", "lastName": "Lhawang", "tags": { "text": "Hello World!" } }' -H "Content-Type:application/json"
 ```
 
 ### Requesting Data
 
-```
-curl -i http://localhost:8090/applications -H "Content-Type:application/json"
-curl -i http://localhost:8090/applications/search -H "Content-Type:application/json"
-curl -i http://localhost:8090/applications/search/findByName?name=hello-world-middle -H "Content-Type:application/json"
-```
+http://localhost:8090/accounts
+http://localhost:8090/accounts/search
+http://localhost:8090/accounts/search/findByFirstName?firstName=Jinpa
+http://localhost:8090/accounts/search/findByLastName?lastName=Lhawang
 
 ### Checking Eureka Client Service Discovery Instance Details
 
-```
-curl -i http://localhost:8090/service-instances/properties-middle -H "Content-Type:application/json"
-```
+http://localhost:8090/service-instances/account-middle

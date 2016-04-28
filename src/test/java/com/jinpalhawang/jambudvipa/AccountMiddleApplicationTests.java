@@ -20,12 +20,12 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.jinpalhawang.jambudvipa.PropertiesMiddleApplication;
+import com.jinpalhawang.jambudvipa.AccountMiddleApplication;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = PropertiesMiddleApplication.class)
+@SpringApplicationConfiguration(classes = AccountMiddleApplication.class)
 @WebAppConfiguration
-public class PropertiesMiddleApplicationTests {
+public class AccountMiddleApplicationTests {
 
   private MockMvc mockMvc;
 
@@ -33,19 +33,19 @@ public class PropertiesMiddleApplicationTests {
   private WebApplicationContext webApplicationContext;
 
   @Autowired
-  private ApplicationRepository applicationRepository;
+  private AccountRepository accountRepository;
 
   @Before
   public void setup() throws Exception {
     this.mockMvc = webAppContextSetup(webApplicationContext).build();
-    this.applicationRepository.deleteAll();
-    Map<String, String> properties = new HashMap<String, String>();
-    properties.put("text", "Hello World!");
-    this.applicationRepository.save(new Application("hello-world-middle", "Hello World!", properties));
+    this.accountRepository.deleteAll();
+    Map<String, String> tags = new HashMap<String, String>();
+    tags.put("text", "Hello World!");
+    this.accountRepository.save(new Account("Jinpa", "Lhawang", tags));
   }
 
   @Test
-  public void properties() throws Exception {
+  public void helloWorld() throws Exception {
     mockMvc.perform(get("/"))
         .andExpect(status().isOk())
         .andExpect(content().contentType(new MediaType(MediaType.TEXT_PLAIN.getType(),
@@ -56,14 +56,14 @@ public class PropertiesMiddleApplicationTests {
 
   @Test
   public void applicationsFindByName() throws Exception {
-    mockMvc.perform(get("/applications/search/findByName?name=hello-world-middle"))
+    mockMvc.perform(get("/accounts/search/findByFirstName?firstName=Jinpa"))
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaTypes.HAL_JSON));
   }
 
   @Test
   public void applicationsFindByNameNotFound() throws Exception {
-    mockMvc.perform(get("/applications/search/findByName?name=invalid"))
+    mockMvc.perform(get("/accounts/search/findByFirstName?firstName=invalid"))
         .andExpect(status().isNotFound());
   }
 
