@@ -26,7 +26,7 @@ public class AccountMiddleApplication {
     final SpringApplication app = new SpringApplication(AccountMiddleApplication.class);
     app.setLogStartupInfo(false);
     app.run(args);
-    log.info(AccountMiddleApplication.class.getSimpleName() + " started...");
+    log.info(AccountMiddleApplication.class.getSimpleName() + " started.");
   }
 
 }
