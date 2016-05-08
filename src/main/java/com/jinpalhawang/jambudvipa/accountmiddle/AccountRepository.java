@@ -1,4 +1,4 @@
-package com.jinpalhawang.jambudvipa;
+package com.jinpalhawang.jambudvipa.accountmiddle;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.query.Param;

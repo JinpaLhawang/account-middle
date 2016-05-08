@@ -1,4 +1,4 @@
-package com.jinpalhawang.jambudvipa;
+package com.jinpalhawang.jambudvipa.accountmiddle;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +12,10 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
 
+import com.jinpalhawang.jambudvipa.accountmiddle.Account;
+import com.jinpalhawang.jambudvipa.accountmiddle.AccountMiddleApplication;
+import com.jinpalhawang.jambudvipa.accountmiddle.AccountRepository;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
@@ -19,8 +23,6 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
-
-import com.jinpalhawang.jambudvipa.AccountMiddleApplication;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = AccountMiddleApplication.class)
