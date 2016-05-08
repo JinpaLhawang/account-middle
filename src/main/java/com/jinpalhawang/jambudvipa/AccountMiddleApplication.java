@@ -20,13 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableDiscoveryClient
 public class AccountMiddleApplication {
 
-  private static final Logger log = LoggerFactory.getLogger(AccountMiddleApplication.class);
-
   public static void main(String[] args) {
-    final SpringApplication app = new SpringApplication(AccountMiddleApplication.class);
-    app.setLogStartupInfo(false);
-    app.run(args);
-    log.info(AccountMiddleApplication.class.getSimpleName() + " started.");
+    SpringApplication.run(AccountMiddleApplication.class, args);
   }
 
 }
